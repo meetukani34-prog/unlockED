@@ -82,6 +82,7 @@ INSERT INTO lessons (id, course_id, title, content, order_index, duration_minute
   ),
   (
     '33333333-3333-3333-3333-333333333302',
+    '22222222-2222-2222-2222-222222222201',
     'Building Microservices with Go & PostgreSQL',
     '# Building Microservices with Go & PostgreSQL\n\nLearn how to structure robust API endpoints with clean architecture, prepared SQL queries, transaction boundaries, and structured JSON responses.\n\n### Database Schema Considerations\nAlways define proper foreign keys and composite indexes for multi-column filters.\n\n```sql\nCREATE INDEX idx_orders_user_created ON orders (user_id, created_at DESC);\n```',
     2,
@@ -90,6 +91,7 @@ INSERT INTO lessons (id, course_id, title, content, order_index, duration_minute
   ),
   (
     '33333333-3333-3333-3333-333333333303',
+    '22222222-2222-2222-2222-222222222201',
     'Next.js 15 App Router & Server Actions Integration',
     '# Next.js 15 App Router & Server Actions Integration\n\nConnect your Go services with Next.js 15. Learn how React Server Components (RSC) fetch data on the server without shipping JavaScript bundles to the browser client.',
     3,
