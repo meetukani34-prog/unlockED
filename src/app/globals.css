@@ -1,26 +1,255 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* ===== Obsidian Kinetic Design System ===== */
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+    /* Primary */
+    --primary: #8B5CF6;
+    --primary-hover: #7C3AED;
+    --primary-container: #A078FF;
+    --primary-muted: #D0BCFF;
+    --on-primary: #3C0091;
+    --on-primary-container: #340080;
+
+    /* Secondary */
+    --secondary: #6366F1;
+    --secondary-container: #3131C0;
+    --secondary-muted: #C0C1FF;
+    --on-secondary: #1000A9;
+    --on-secondary-container: #B0B2FF;
+
+    /* Tertiary */
+    --tertiary: #22C55E;
+    --tertiary-bright: #4AE176;
+    --tertiary-container: #00A74B;
+    --on-tertiary: #003915;
+
+    /* Accent */
+    --amber: #F59E0B;
+    --amber-muted: rgba(245, 158, 11, 0.12);
+
+    /* Error */
+    --error: #FFB4AB;
+    --error-container: #93000A;
+    --on-error: #690005;
+
+    /* Surfaces (Dark - Dashboard) */
+    --surface-canvas: #0B0B12;
+    --surface: #13131A;
+    --surface-container-lowest: #0E0E15;
+    --surface-container-low: #1B1B22;
+    --surface-container: #1F1F26;
+    --surface-container-high: #2A2931;
+    --surface-container-highest: #34343C;
+    --surface-bright: #393841;
+    --surface-card: #151520;
+    --surface-elevated: #1C1C2B;
+    --surface-inset: #101018;
+
+    /* Borders */
+    --border-structural: #232336;
+    --border-hover: #363654;
+    --border-outline: #958EA0;
+    --border-outline-variant: #494454;
+
+    /* Text */
+    --text-primary: #F5F3FF;
+    --text-on-surface: #E4E1EC;
+    --text-secondary: #94A3B8;
+    --text-on-surface-variant: #CBC3D7;
+    --text-muted: #64748B;
+
+    /* Inverse */
+    --inverse-surface: #E4E1EC;
+    --inverse-on-surface: #303038;
+    --inverse-primary: #6D3BD7;
+
+    /* Light Surfaces (Marketing Pages) */
+    --light-canvas: #FAFAFD;
+    --light-surface: #FFFFFF;
+    --light-border: #E2E8F0;
+    --light-text-primary: #0F172A;
+    --light-text-secondary: #475569;
+
+    /* Radius */
+    --radius-sm: 0.25rem;
+    --radius: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2.5rem;
+    --gutter: 1.5rem;
+    --gutter-sm: 1rem;
+    --margin: 2rem;
+    --margin-sm: 1rem;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 16px -4px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(139, 92, 246, 0.08);
+    --shadow-xl: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+    --shadow-violet: 0 0 24px -2px rgba(139, 92, 246, 0.25);
+    --shadow-emerald: 0 0 20px -2px rgba(34, 197, 94, 0.22);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-background: var(--surface);
+  --color-foreground: var(--text-on-surface);
+  --font-sans: var(--font-sans);
+
+  /* Colors */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-container: var(--primary-container);
+  --color-primary-muted: var(--primary-muted);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-secondary-muted: var(--secondary-muted);
+  --color-on-secondary: var(--on-secondary);
+  --color-on-secondary-container: var(--on-secondary-container);
+
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-bright: var(--tertiary-bright);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary: var(--on-tertiary);
+
+  --color-amber: var(--amber);
+  --color-amber-muted: var(--amber-muted);
+
+  --color-error: var(--error);
+  --color-error-container: var(--error-container);
+  --color-on-error: var(--on-error);
+
+  --color-surface-canvas: var(--surface-canvas);
+  --color-surface: var(--surface);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-card: var(--surface-card);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-inset: var(--surface-inset);
+
+  --color-border: var(--border-structural);
+  --color-border-hover: var(--border-hover);
+  --color-border-outline: var(--border-outline);
+  --color-border-outline-variant: var(--border-outline-variant);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-on-surface: var(--text-on-surface);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-on-surface-variant: var(--text-on-surface-variant);
+  --color-text-muted: var(--text-muted);
+
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-inverse-primary: var(--inverse-primary);
+
+  --color-light-canvas: var(--light-canvas);
+  --color-light-surface: var(--light-surface);
+  --color-light-border: var(--light-border);
+  --color-light-text-primary: var(--light-text-primary);
+  --color-light-text-secondary: var(--light-text-secondary);
+
+  /* Border Radius */
+  --radius-sm: var(--radius-sm);
+  --radius: var(--radius);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background: var(--surface);
+    color: var(--text-on-surface);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-structural);
+    border-radius: var(--radius-full);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-hover);
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-gradient-primary {
+    background: linear-gradient(to right, var(--primary), var(--secondary), var(--tertiary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(to right, var(--primary-container), var(--primary));
+  }
+
+  .bg-gradient-ambient {
+    background: radial-gradient(ellipse at top, rgba(139, 92, 246, 0.15), transparent 50%);
+  }
+
+  .glow-violet {
+    box-shadow: var(--shadow-violet);
+  }
+
+  .glow-emerald {
+    box-shadow: var(--shadow-emerald);
+  }
+
+  .card-hover {
+    transition: all 150ms ease;
+  }
+  .card-hover:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+  }
+
+  .frosted {
+    background: rgba(21, 21, 32, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .input-focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  }
 }
