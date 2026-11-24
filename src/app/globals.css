@@ -35,7 +35,7 @@
     --error-container: #93000A;
     --on-error: #690005;
 
-    /* Surfaces (Dark - Dashboard) */
+    /* Surfaces (Dark - Default) */
     --surface-canvas: #0B0B12;
     --surface: #13131A;
     --surface-container-lowest: #0E0E15;
@@ -66,7 +66,7 @@
     --inverse-on-surface: #303038;
     --inverse-primary: #6D3BD7;
 
-    /* Light Surfaces (Marketing Pages) */
+    /* Light Surfaces */
     --light-canvas: #FAFAFD;
     --light-surface: #FFFFFF;
     --light-border: #E2E8F0;
@@ -184,11 +184,12 @@
   }
 
   body {
-    background: var(--surface);
+    background-color: var(--surface-canvas);
     color: var(--text-on-surface);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.15s ease, color 0.15s ease;
   }
 
   /* Custom scrollbar */
@@ -206,6 +207,168 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--border-hover);
   }
+}
+
+/* ==============================================================================
+   Light Theme System & Overrides
+   ============================================================================== */
+html.light {
+  color-scheme: light;
+
+  /* Surfaces */
+  --surface-canvas: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-container-lowest: #FFFFFF;
+  --surface-container-low: #F8FAFC;
+  --surface-container: #F1F5F9;
+  --surface-container-high: #E2E8F0;
+  --surface-container-highest: #CBD5E1;
+  --surface-bright: #F1F5F9;
+  --surface-card: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-inset: #F8FAFC;
+
+  /* Borders */
+  --border-structural: #E2E8F0;
+  --border-hover: #CBD5E1;
+  --border-outline: #94A3B8;
+  --border-outline-variant: #CBD5E1;
+
+  /* Text */
+  --text-primary: #0F172A;
+  --text-on-surface: #0F172A;
+  --text-secondary: #475569;
+  --text-on-surface-variant: #64748B;
+  --text-muted: #64748B;
+
+  /* Primary / Secondary for Light Contrast */
+  --primary: #7C3AED;
+  --primary-hover: #6D28D9;
+  --secondary: #4F46E5;
+}
+
+html.light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Background Overrides for Light Mode */
+html.light [class*="bg-[#0B0B12]"] {
+  background-color: #F8FAFC !important;
+}
+html.light [class*="bg-[#0E0E15]"] {
+  background-color: #F1F5F9 !important;
+}
+html.light [class*="bg-[#101018]"] {
+  background-color: #FFFFFF !important;
+}
+html.light [class*="bg-[#13131A]"] {
+  background-color: #FFFFFF !important;
+}
+html.light [class*="bg-[#151520]"] {
+  background-color: #FFFFFF !important;
+}
+html.light [class*="bg-[#1A1A26]"],
+html.light [class*="bg-[#1C1C2B]"] {
+  background-color: #F8FAFC !important;
+}
+html.light [class*="bg-[#1F1F26]"],
+html.light [class*="bg-[#25253A]"],
+html.light [class*="bg-[#34343C]"] {
+  background-color: #F1F5F9 !important;
+}
+
+/* Opacity variants */
+html.light [class*="bg-[#13131A]/"] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+html.light [class*="bg-[#0B0B12]/"] {
+  background-color: rgba(248, 250, 252, 0.92) !important;
+}
+html.light [class*="bg-[#151520]/"] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+html.light [class*="bg-[#101018]/"] {
+  background-color: rgba(241, 245, 249, 0.85) !important;
+}
+
+/* Borders */
+html.light [class*="border-[#232336]"] {
+  border-color: #E2E8F0 !important;
+}
+html.light [class*="border-[#2A2931]"] {
+  border-color: #E2E8F0 !important;
+}
+html.light [class*="border-[#363654]"] {
+  border-color: #CBD5E1 !important;
+}
+html.light [class*="border-[#494454]"] {
+  border-color: #CBD5E1 !important;
+}
+
+/* Text */
+html.light [class*="text-[#F5F3FF]"] {
+  color: #0F172A !important;
+}
+html.light [class*="text-[#E4E1EC]"] {
+  color: #1E293B !important;
+}
+html.light [class*="text-[#94A3B8]"] {
+  color: #475569 !important;
+}
+html.light [class*="text-[#CBC3D7]"] {
+  color: #64748B !important;
+}
+
+/* High contrast for brand badges in Light Mode */
+html.light [class*="text-[#D0BCFF]"],
+html.light [class*="text-[#C4B5FD]"] {
+  color: #6D28D9 !important;
+}
+html.light [class*="text-[#C0C1FF]"],
+html.light [class*="text-[#A5B4FC]"] {
+  color: #4338CA !important;
+}
+html.light [class*="text-[#4AE176]"] {
+  color: #15803D !important;
+}
+
+/* Card Depth in Light Mode */
+html.light [class*="bg-[#151520]"],
+html.light [class*="bg-[#13131A]"] {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+/* Hover States in Light Mode */
+html.light [class*="hover:bg-[#151520]"]:hover {
+  background-color: #F1F5F9 !important;
+}
+html.light [class*="hover:bg-[#1F1F26]"]:hover {
+  background-color: #F1F5F9 !important;
+}
+html.light [class*="hover:bg-[#1C1C2B]"]:hover {
+  background-color: #E2E8F0 !important;
+}
+html.light [class*="hover:border-[#363654]"]:hover {
+  border-color: #94A3B8 !important;
+}
+html.light [class*="hover:text-[#F5F3FF]"]:hover {
+  color: #0F172A !important;
+}
+
+/* Frosted glass in Light Mode */
+html.light .frosted {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Scrollbar for Light Mode */
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
 
 /* Utility Classes */

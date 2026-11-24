@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/auth-context";
 import { Button } from "@/components/ui/button";
 import { NotificationPopover } from "./notification-popover";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Sparkles,
   BookOpen,
@@ -133,6 +134,9 @@ export function Navbar() {
               Admin
             </button>
           </div>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
 
           {/* Notifications */}
           <NotificationPopover />
