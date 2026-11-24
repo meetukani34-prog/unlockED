@@ -36,11 +36,32 @@ function isStaticAsset(path: string): boolean {
 }
 
 export async function updateSession(request: NextRequest) {
+  const path = request.nextUrl.pathname;
+
+  // Skip auth checks for static assets and API routes
+  if (isStaticAsset(path) || isApiRoute(path)) {
+    return NextResponse.next({ request });
+  }
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  // If Supabase is unconfigured or has placeholder values (e.g. offline dev / demo mode),
+  // bypass SSR Supabase auth so the application runs seamlessly.
+  if (
+    !supabaseUrl ||
+    !supabaseAnonKey ||
+    !supabaseUrl.startsWith("http") ||
+    supabaseUrl.includes("your_supabase_project_url")
+  ) {
+    return NextResponse.next({ request });
+  }
+
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    supabaseUrl,
+    supabaseAnonKey,
     {
       cookies: {
         getAll() {
@@ -58,13 +79,6 @@ export async function updateSession(request: NextRequest) {
       },
     }
   );
-
-  const path = request.nextUrl.pathname;
-
-  // Skip auth checks for static assets and API routes
-  if (isStaticAsset(path) || isApiRoute(path)) {
-    return supabaseResponse;
-  }
 
   // Refresh session
   const {
